@@ -50,7 +50,7 @@ public class TableReader {
 
     public static DefaultTableModel creamodelo(String from) throws IOException {
         TextFile prueba = new TextFile();
-        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\P\\src\\p\\" + from + ".txt");
+        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\DescriptorDeArchivos\\src\\p\\" + from + ".txt");
         String line = prueba.readLine();
         String[] columnas = line.split(",");
         ArrayList<cabeza> cabezas = new ArrayList<>();
@@ -90,12 +90,13 @@ public class TableReader {
             cont++;
         }
 
+        prueba.closeRead();
         return model;
     }
 
     public static DefaultTableModel seleccion(String from, String where) throws IOException {
         TextFile prueba = new TextFile();
-        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\P\\src\\p\\" + from + ".txt");
+        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\DescriptorDeArchivos\\src\\p\\" + from + ".txt");
         String line = prueba.readLine();
         String[] columnas = line.split(",");
         ArrayList<cabeza> cabezas = new ArrayList<>();
@@ -170,12 +171,13 @@ public class TableReader {
             cont++;
         }
 
+        prueba.closeRead();
         return model;
     }
 
     public static DefaultTableModel proyeccion(String select, String from, String where) throws IOException {
-       TextFile prueba = new TextFile();
-        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\P\\src\\p\\" + from + ".txt");
+        TextFile prueba = new TextFile();
+        prueba.openRead("C:\\Users\\Aw\\Documents\\Escuela\\Otoño 2020\\Base de Datos\\DescriptorDeArchivos\\src\\p\\" + from + ".txt");
         String line = prueba.readLine();
         String[] columnas = line.split(",");
         String[] columnas2 = select.split(",");
@@ -221,7 +223,7 @@ public class TableReader {
             //System.out.println(cabezas.get(i).getNombre());
 
         }
-        
+
         model2.addColumn(" ");
         for (int i = 0; i < columnas2.length; i++) {
             model2.addColumn(columnas2[i]);//Agregamos linea nombre de cada columna a la tabla
@@ -258,25 +260,22 @@ public class TableReader {
             //System.out.println("nombre :"+line.substring(cabezas.get(1).getA(), cabezas.get(1).getB()));
             cont++;
         }
-        
-        
-         Object c[] = new Object[5];
-         
-        int l=0;
-        cont=1;
-   
-            
-            
-            for (int j = 0; j < (columnas2.length); j++) { 
-                    c[0] = cont;
-                    c[1] = model.getValueAt(j, 1);
-                    c[2] = model.getValueAt(j, 2);
-                    c[3] = model.getValueAt(j, 8);
-                    cont++;
-                    model2.addRow(c);
-            }
-            
-           
+
+        Object c[] = new Object[5];
+
+        int l = 0;
+        cont = 1;
+
+        for (int j = 0; j < (columnas2.length); j++) {
+            c[0] = cont;
+            c[1] = model.getValueAt(j, 1);
+            c[2] = model.getValueAt(j, 2);
+            c[3] = model.getValueAt(j, 8);
+            cont++;
+            model2.addRow(c);
+        }
+
+        prueba.closeRead();
 
         return model2;
 

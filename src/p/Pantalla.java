@@ -6,6 +6,8 @@
 package p;
 
 import queryA.*;
+import queryB.*;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -87,18 +89,18 @@ public class Pantalla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        consulta2 ventana2 = null;
         try {
-            ventana2 = new consulta2();
+            //Opcion B
+            consulta2 ventanaB = new consulta2();
+            ventanaB.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(Pantalla.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ventana2.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        queryPA ventanaA  = new queryPA();
+        queryPA ventanaA  = new queryPA(); //opcion A
         ventanaA.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
